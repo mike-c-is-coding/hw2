@@ -138,7 +138,6 @@ studio["name"] = "Warner Bros."
 studio.save
 
 # Filling in movie data
-
 studio_name = Studio.find_by({"name" => "Warner Bros."})
 
 movie1 = Movie.new
@@ -152,7 +151,7 @@ movie2 = Movie.new
 movie2["name"] = "The Dark Knight"
 movie2["year"] = 2008
 movie2["rating"] = "PG-13"
-movie2["studio_id"] = studio["id"]
+movie2["studio_id"] = studio_name["id"]
 movie2.save
 
 movie3 = Movie.new
@@ -161,6 +160,78 @@ movie3["year"] = 2013
 movie3["rating"] = "PG-13"
 movie3["studio_id"] = studio["id"]
 movie3.save
+
+# Filling in role data
+movie_name1 = Movie.find_by({"name" => "Batman Begins"}) 
+movie_name2 = Movie.find_by({"name" => "The Dark Knight"}) 
+movie_name3 = Movie.find_by({"name" => "The Dark Knight Rises"}) 
+
+actor_name1 = Actor.find_by({"name" => "Christian Bale"})
+actor_name2 = Actor.find_by({"name" => "Michael Caine"})
+actor_name3 = Actor.find_by({"name" => "Liam Neeson"})
+actor_name4 = Actor.find_by({"name" => "Katie Holmes"})
+actor_name5 = Actor.find_by({"name" => "Gary Oldman"})
+actor_name6 = Actor.find_by({"name" => "Heath Ledger"})
+actor_name7 = Actor.find_by({"name" => "Aaron Eckhart"})
+actor_name8 = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+actor_name9 = Actor.find_by({"name" => "Tom Hardy"})
+actor_name10 = Actor.find_by({"name" => "Joseph Gordon-Leavitt"})
+actor_name11 = Actor.find_by({"name" => "Anne Hathaway"})
+
+role1 = Role.new
+role1["movie_id"] = movie_name1["id"]
+role1["actor_id"] = actor_name1["id"]
+role1["character_name"] = "Bruce Wayne"
+role1.save
+
+role2 = Role.new
+role2["movie_id"] = movie_name1["id"]
+role2["actor_id"] = actor_name1["id"]
+role2["character_name"] = "Bruce Wayne"
+role2.save
+
+role2 = Role.new
+role2["movie_id"] = movie_name1["id"]
+role2["actor_id"] = actor_name1["id"]
+role2["character_name"] = "Bruce Wayne"
+role2.save
+
+role3 = Role.new
+role3["movie_id"] = movie_name1["id"]
+role3["actor_id"] = actor_name1["id"]
+role3["character_name"] = "Bruce Wayne"
+role3.save
+
+role4 = Role.new
+role4["movie_id"] = movie_name1["id"]
+role4["actor_id"] = actor_name1["id"]
+role4["character_name"] = "Bruce Wayne"
+role4.save
+
+role1 = Role.new
+role1["movie_id"] = movie_name1["id"]
+role1["actor_id"] = actor_name1["id"]
+role1["character_name"] = "Bruce Wayne"
+role1.save
+
+role1 = Role.new
+role1["movie_id"] = movie_name1["id"]
+role1["actor_id"] = actor_name1["id"]
+role1["character_name"] = "Bruce Wayne"
+role1.save
+
+role1 = Role.new
+role1["movie_id"] = movie_name1["id"]
+role1["actor_id"] = actor_name1["id"]
+role1["character_name"] = "Bruce Wayne"
+role1.save
+
+role1 = Role.new
+role1["movie_id"] = movie_name1["id"]
+role1["actor_id"] = actor_name1["id"]
+role1["character_name"] = "Bruce Wayne"
+role1.save
+
 
 
 # Prints a header for the movies output
