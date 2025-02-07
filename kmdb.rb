@@ -82,11 +82,86 @@ Studio.destroy_all
 
 
 # Generate models and tables, according to the domain model.
-# TODO!
+# done - added Movie, Actor, Role, and Studio models
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
-# TODO!
+
+# Filling in actors data
+actor1 = Actor.new
+actor1["name"] = "Christian Bale"
+actor1.save
+
+actor2 = Actor.new
+actor2["name"] = "Michael Caine"
+actor2.save
+
+actor3 = Actor.new
+actor3["name"] = "Liam Neeson"
+actor3.save
+
+actor4 = Actor.new
+actor4["name"] = "Katie Holmes"
+actor4.save
+
+actor5 = Actor.new
+actor5["name"] = "Gary Oldman"
+actor5.save
+
+actor6 = Actor.new
+actor6["name"] = "Heath Ledger"
+actor6.save
+
+actor7 = Actor.new
+actor7["name"] = "Aaron Eckhart"
+actor7.save
+
+actor8 = Actor.new
+actor8["name"] = "Maggie Gyllenhaal"
+actor8.save
+
+actor9 = Actor.new
+actor9["name"] = "Tom Hardy"
+actor9.save
+
+actor10 = Actor.new
+actor10["name"] = "Joseph Gordon-Leavitt"
+actor10.save
+
+actor11 = Actor.new
+actor11["name"] = "Anne Hathaway"
+actor11.save
+
+# Filling in studio data
+studio = Studio.new
+studio["name"] = "Warner Bros."
+studio.save
+
+# Filling in movie data
+
+studio_name = Studio.find_by({"name" => "Warner Bros."})
+
+movie1 = Movie.new
+movie1["name"] = "Batman Begins"
+movie1["year"] = 2005
+movie1["rating"] = "PG-13"
+movie1["studio_id"] = studio["id"]
+movie1.save
+
+movie2 = Movie.new
+movie2["name"] = "The Dark Knight"
+movie2["year"] = 2008
+movie2["rating"] = "PG-13"
+movie2["studio_id"] = studio["id"]
+movie2.save
+
+movie3 = Movie.new
+movie3["name"] = "The Dark Knight Rises"
+movie3["year"] = 2013
+movie3["rating"] = "PG-13"
+movie3["studio_id"] = studio["id"]
+movie3.save
+
 
 # Prints a header for the movies output
 puts "Movies"
