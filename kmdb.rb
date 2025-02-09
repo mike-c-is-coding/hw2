@@ -186,52 +186,87 @@ role1.save
 
 role2 = Role.new
 role2["movie_id"] = movie_name1["id"]
-role2["actor_id"] = actor_name1["id"]
-role2["character_name"] = "Bruce Wayne"
-role2.save
-
-role2 = Role.new
-role2["movie_id"] = movie_name1["id"]
-role2["actor_id"] = actor_name1["id"]
-role2["character_name"] = "Bruce Wayne"
+role2["actor_id"] = actor_name2["id"]
+role2["character_name"] = "Alfred"
 role2.save
 
 role3 = Role.new
 role3["movie_id"] = movie_name1["id"]
-role3["actor_id"] = actor_name1["id"]
-role3["character_name"] = "Bruce Wayne"
+role3["actor_id"] = actor_name3["id"]
+role3["character_name"] = "Ra's Al-Gul"
 role3.save
 
 role4 = Role.new
 role4["movie_id"] = movie_name1["id"]
-role4["actor_id"] = actor_name1["id"]
-role4["character_name"] = "Bruce Wayne"
+role4["actor_id"] = actor_name4["id"]
+role4["character_name"] = "Rachel Dawes"
 role4.save
 
-role1 = Role.new
-role1["movie_id"] = movie_name1["id"]
-role1["actor_id"] = actor_name1["id"]
-role1["character_name"] = "Bruce Wayne"
-role1.save
+role5 = Role.new
+role5["movie_id"] = movie_name1["id"]
+role5["actor_id"] = actor_name5["id"]
+role5["character_name"] = "Commissioner Gordon"
+role5.save
 
-role1 = Role.new
-role1["movie_id"] = movie_name1["id"]
-role1["actor_id"] = actor_name1["id"]
-role1["character_name"] = "Bruce Wayne"
-role1.save
+role6 = Role.new
+role6["movie_id"] = movie_name2["id"]
+role6["actor_id"] = actor_name1["id"]
+role6["character_name"] = "Bruce Wayne"
+role6.save
 
-role1 = Role.new
-role1["movie_id"] = movie_name1["id"]
-role1["actor_id"] = actor_name1["id"]
-role1["character_name"] = "Bruce Wayne"
-role1.save
+role7 = Role.new
+role7["movie_id"] = movie_name2["id"]
+role7["actor_id"] = actor_name6["id"]
+role7["character_name"] = "Joker"
+role7.save
 
-role1 = Role.new
-role1["movie_id"] = movie_name1["id"]
-role1["actor_id"] = actor_name1["id"]
-role1["character_name"] = "Bruce Wayne"
-role1.save
+role8 = Role.new
+role8["movie_id"] = movie_name2["id"]
+role8["actor_id"] = actor_name7["id"]
+role8["character_name"] = "Harvey Dent"
+role8.save
 
+role9 = Role.new
+role9["movie_id"] = movie_name2["id"]
+role9["actor_id"] = actor_name2["id"]
+role9["character_name"] = "Alfred"
+role9.save
+
+role10 = Role.new
+role10["movie_id"] = movie_name2["id"]
+role10["actor_id"] = actor_name8["id"]
+role10["character_name"] = "Rachel Dawes"
+role10.save
+
+role11 = Role.new
+role11["movie_id"] = movie_name3["id"]
+role11["actor_id"] = actor_name1["id"]
+role11["character_name"] = "Bruce Wayne"
+role11.save
+
+role12 = Role.new
+role12["movie_id"] = movie_name3["id"]
+role12["actor_id"] = actor_name5["id"]
+role12["character_name"] = "Commissioner Gordon"
+role12.save
+
+role13 = Role.new
+role13["movie_id"] = movie_name3["id"]
+role13["actor_id"] = actor_name9["id"]
+role13["character_name"] = "Bane"
+role13.save
+
+role14 = Role.new
+role14["movie_id"] = movie_name3["id"]
+role14["actor_id"] = actor_name10["id"]
+role14["character_name"] = "John Blake"
+role14.save
+
+role15 = Role.new
+role15["movie_id"] = movie_name3["id"]
+role15["actor_id"] = actor_name11["id"]
+role15["character_name"] = "Selina Kyle"
+role15.save
 
 
 # Prints a header for the movies output
@@ -240,7 +275,21 @@ puts "======"
 puts ""
 
 # Query the movies data and loop through the results to display the movies output.
-# TODO!
+
+studio_name = Studio.find_by({"name" => "Warner Bros."})
+movies = Movie.all
+
+for movie in movies
+    name = movie["name"]
+    year = movie["year"]
+    rating = movie["rating"]
+    studio = studio_name.name
+
+    puts "#{name} #{year} #{rating} #{studio}"
+
+end
+
+
 
 # Prints a header for the cast output
 puts ""
@@ -249,4 +298,15 @@ puts "========"
 puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
+
+roles = Role.all
+
+for role in roles
+    movie = Movie.find_by({"id" => role["movie_id"]})
+    actor = Actor.find_by({"id" => role["actor_id"]})
+    name = role["character_name"]
+
+    puts "#{movie.name} #{actor.name} #{name}"
+end
+
+
